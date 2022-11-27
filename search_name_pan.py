@@ -3,11 +3,10 @@ import requests
 from easygui import enterbox
 import pandas as pd
 
-kword = enterbox("Enter Company Name or Pan Number","Name or PAN Number")
+kyword = enterbox("Enter Company Name or Pan Number","Name or PAN Number")
+requrl = 'https://blog-backend.mastersindia.co/api/v1/custom/search/name_and_pan/'
+params = {"keyword":kyword,"unique_id":394948}
+apirsp = requests.request("GET",requrl,params=params)
+print(apirsp.json())
 
-
-req_url = 'https://blog-backend.mastersindia.co/api/v1/custom/search/name_and_pan/?keyword='+kword
-response = requests.get(req_url)
-print(response.json())
-print('\n\n')
 

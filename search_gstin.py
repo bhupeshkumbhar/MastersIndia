@@ -3,15 +3,14 @@ import requests
 from easygui import enterbox
 import pandas as pd
 
-gstin = enterbox("Enter GSTIN","GSTIN")
-
-req_url = 'https://blog-backend.mastersindia.co/api/v1/custom/search/gstin/?keyword='+gstin+'&unique_id=93845'
-
-response = requests.get(req_url)
-outp  = response.json()
-xlist = []
-xlist.append(outp["data"])
-df = pd.DataFrame(xlist)
-print(df)
+kyword= enterbox("Enter GSTIN","GSTIN")
+requrl = 'https://blog-backend.mastersindia.co/api/v1/custom/search/gstin/'
+params = {"keyword":kyword,"unique_id":394948}
+apirsp = requests.request("GET",requrl,params=params)
+output  = apirsp.json()
+rsplst = []
+rsplst.append(output["data"])
+dframe = pd.DataFrame(rsplst)
+print(dframe)
 
 
