@@ -1,0 +1,11 @@
+import requests
+import pandas as pd
+from easygui import enterbox
+
+pincod = enterbox("Enter Pin Code","Pincode")
+apiurl = 'https://api.postalpincode.in/pincode/'+pincod
+
+apirsp = requests.request("GET",apiurl)
+outlst = apirsp.json()[0]["PostOffice"]
+dframe = pd.DataFrame(outlst)
+print(dframe)
