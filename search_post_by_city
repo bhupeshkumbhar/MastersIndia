@@ -8,4 +8,4 @@ apiurl = 'https://api.postalpincode.in/postoffice/'+cityNm
 apirsp = requests.request("GET",apiurl)
 outlst = apirsp.json()[0]["PostOffice"]
 dframe = pd.DataFrame(outlst)
-print(dframe)
+print(dframe[["Name","BranchType","DeliveryStatus","Circle","District","Division","Region","State","Country","Pincode"]])
