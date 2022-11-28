@@ -9,8 +9,6 @@ api_hdr = {"X-Rapidapi-Key":"472f53a83bmsh0945009f2fe0c7bp1d4da4jsn137f40e946b5"
 
 response = requests.request("POST",api_url,headers=api_hdr,params=api_qry)
 if response.json()["verify"]:
-    print("Status : True")
-    msgbox("Login Successful","Message","Continue")
+    msgbox("One Time Password is Correct","Message","Continue")
 else:
-    print("Status : False")
-    msgbox("Login Failed","Message","Continue")
+    msgbox("One Time Password is inCorrect","Message","Continue")
